@@ -1,0 +1,214 @@
+/* ---Recursos
+-https://www.w3.org/developers/
+-https://w3cx.org/
+-https://meyerweb.com/eric/tools/css/reset/
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers *
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*/
+
+/*------------------------------------------------------------------*/
+/* -------------------------Estilos generales----------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 10%;
+    border-width: 50%;
+}
+h1, h2, h3, h4, h5, h6 {
+    /*rgba = usa transparencias*/
+    color: #ecce6f;
+}
+
+a {
+    /*rgba = usa transparencias*/
+    color: #ecce6f;
+}
+
+a:hover {
+    color: #fffffe;
+}
+
+p {
+    /*rgba = usa transparencias*/
+    color: #fffffe;
+    line-height: 1.5;
+}
+
+li {
+    display: inline;
+}
+
+/* --------------------Estilos especificos------------------------
+
+h1.intro {
+    font-size: 30px;
+}
+
+
+h2.curriculum {
+/*propiedades de header 2 de curriculum.
+
+
+h3.curriculum {
+/*propiedades de header 3 de curriculum. Debe tener un poco de transparencia. 
+
+p.curriculum {
+/*propiedades de parrafo de curriculum*/
+
+
+
+/* -----------------------Estilos de navegacion---------------------*/
+/*Anade JavaScript a la navegacion*/
+.navegacion {
+    font-size: 10px;
+    margin-left: 250px;
+    width: 72px;
+    position: fixed;
+    inset: 0;
+    margin: auto 1rem;
+    z-index: 1;
+}
+
+.navItems {
+    list-style-type: none;
+    border: 5px double #ecce6f;
+    border-radius: 20px;
+    /*box-shadow: 5px 5px 20px #fffffe;*/
+    padding: 10px;
+    left: 100px;
+    right: 0px;
+    top: 100px;
+    bottom: 100px;
+}
+
+/* ------Estilos para el logo - quiero el logo animado 3d----------- */
+.main-img {
+    border: solid 5px black;
+    border-radius: 10%;
+    width: 10%;
+    max-width: 5%;
+    min-width: 10%;
+}
+
+/* ----------------------Estilos Estructura-----------------------
+.contenedor {
+
+}
+*/
+/* ----------------------Estilo Footer/Pie-----------------
+.footer {
+    position:absolute;
+
+
+}
+*/
+/* -----------------------Paginas---------------------------
+.contacto {
+
+}
+
+.trabajos {
+
+}
+*/
+
+/* ------------------------Estilos Seudoclases---------------------*/
+a:hover {
+    text-decoration: dotted;
+}
+
+a:active {
+    color: white;
+}
+
+/*a:visited {}
+   /*RGBA con transparencia*/ 
+
+a:focus {
+    size: 1.5;
+}
+
+/* -----------------ESTILO CODIGO PRUEBA ----------------------*/
+.prueba {
+    font-size: 20px;
+    background-color: gray;
+    width: 300px 300px 300px 300px;
+    height: 400px, 400px;
+    margin: auto;
+    padding: 100px 100px 100px 100px;
+}
+
+.prueba2{
+    font-size: 20px;
+    background-color: gray;
+    width: 300px 300px 300px 300px;
+    height: 400px, 400px;
+    margin: auto;
+    border: 10px;
+    padding: 100px 100px 100px 100px;
+}
+
+/*@meta/media queries para responsive web*/
+
+/*Inspiracion
+
+Ejemplos: 
+https://karlanungaray.github.io/ - imagen arriba.
+https://ivanpeez.github.io/#sobreMiRef - navegacion hacia la izquierda con iconos.
+
+*/
