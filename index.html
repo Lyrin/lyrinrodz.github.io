@@ -182,7 +182,22 @@
 
     </main>
 
-    <script src="javascript.js"></script>
+      <script src="javascript.js"></script>
+    <script>
+      // Inline fallback — ensures tabs work even if javascript.js fails to load
+      if (typeof switchTab === 'undefined') {
+        function switchTab(btn, id) {
+          document.querySelectorAll('.tab-btn').forEach(function(b) {
+            b.classList.remove('active');
+          });
+          document.querySelectorAll('.tab-panel').forEach(function(p) {
+            p.classList.remove('active');
+          });
+          btn.classList.add('active');
+          document.getElementById('tab-' + id).classList.add('active');
+        }
+      }
+    </script>
 
   </body>
 </html>
