@@ -439,6 +439,16 @@ a:focus {
   color: var(--muted);
 }
 
+/*--Portafolio Card Img Class --*/
+.port-img {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  margin-bottom: 0.6rem;
+  flex-shrink: 0;
+}
+
 /* Music tab */
 .music-note {
   color: var(--white);
