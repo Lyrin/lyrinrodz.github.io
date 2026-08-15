@@ -1,14 +1,12 @@
-/* ---Recursos
--https://www.w3.org/developers/
--https://w3cx.org/
--https://meyerweb.com/eric/tools/css/reset/
+/* =============================================================
+   estilos.css — Lyrin Rodz Portfolio
+   Resources:
+   - https://www.w3.org/developers/
+   - https://w3cx.org/
+   - https://meyerweb.com/eric/tools/css/reset/
+   ============================================================= */
 
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*
-
+/* ---- Eric Meyer CSS Reset v2.0 ----------------------------- */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,280 +16,527 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers *
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-*/
-
-/*------------------------------------------------------------------*/
-/* -------------------------Estilos generales----------------------- */
-
-* {
-    box-sizing: border-box;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-body {
-    background-color: #000000;
-    font-family: "Kdam Thmor Pro", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 10%;
-    border-width: 50%;
-}
-h1, h2, h3, h4, h5, h6 {
-    /*rgba = usa transparencias*/
-    color: #ecce6f;
-}
+/* ---- CSS Custom Properties (Design Tokens) ----------------- */
+:root {
+  --gold:     #ecce6f;
+  --white:    #fffffe;
+  --black:    #000000;
+  --surface:  #0e0e0e;
+  --surface2: #141414;
+  --surface3: #1c1c1c;
+  --muted:    #6a6358;
+  --border:   #252525;
 
-a {
-    /*rgba = usa transparencias*/
-    color: #ecce6f;
-}
+  --font-main:    "Kdam Thmor Pro", sans-serif;
+  --font-display: "Nabla", cursive;
+  --font-body:    "TikTok Sans", sans-serif;
 
-a:hover {
-    color: #fffffe;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12%;
 }
 
-p {
-    /*rgba = usa transparencias*/
-    color: #fffffe;
-    line-height: 1.5;
+/* ---- Base Styles ------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-li {
-    display: inline;
-}
-
-
-
-/* --------------------Estilos especificos------------------------
-
-h1.intro {
-    font-size: 30px;
-}
-
-
-h2.curriculum {
-/*propiedades de header 2 de curriculum.
-
-
-h3.curriculum {
-/*propiedades de header 3 de curriculum. Debe tener un poco de transparencia. 
-
-p.curriculum {
-/*propiedades de parrafo de curriculum*/
-
-
-
-/* -----------------------Estilos de navegacion---------------------*/
-/*Anade JavaScript a la navegacion*/
-.navegacion {
-    font-size: 10px;
-    margin-left: 250px;
-    width: 72px;
-    position: fixed;
-    inset: 0;
-    margin: auto 1rem;
-    z-index: 1;
-}
-
-.navItems {
-    list-style-type: none;
-    border: 5px double #ecce6f;
-    border-radius: 20px;
-    /*box-shadow: 5px 5px 20px #fffffe;*/
-    padding: 10px;
-    left: 100px;
-    right: 0px;
-    top: 100px;
-    bottom: 100px;
-}
-
-/* ------Estilos para el logo 
-.main-img {
-    border: solid 5px black;
-    border-radius: 10%;
-    width: 10%;
-    max-width: 5%;
-    min-width: 10%;
-}
-- quiero el logo animado 3d----------- */
-
-/*--------------------------ARREGLO LOGO-----------------------------------*/
-/* General safety net for ALL images */
+/* Safety net — prevents ANY image from ever overflowing its container */
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
-/* Sidebar logo */
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--gold);
+}
+
+p {
+  color: var(--white);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--white);
+}
+
+a:active {
+  color: var(--white);
+}
+
+a:focus {
+  outline: 1px dotted var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---- LEFT SIDEBAR NAV -------------------------------------- */
+.sidenav {
+  width: 180px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: var(--black);
+  gap: 0;
+}
+
+/* Logo in sidebar */
 .sidenav-logo-img {
   width: 64px;
   height: 64px;
+  border-radius: var(--radius-lg);
+  border: 3px double var(--gold);
   object-fit: cover;
-  border-radius: 12%;
-  border: 3px double #ecce6f;
+  margin-bottom: 0.6rem;
+  flex-shrink: 0;
+}
+
+.sidenav-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.sidenav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.sidenav-links a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-md);
+  transition: color 0.2s, background 0.2s;
+}
+
+.sidenav-links a:hover {
+  color: var(--white);
+  background: var(--surface2);
+}
+
+.sidenav-links a.active {
+  color: var(--gold);
+  background: var(--surface2);
+}
+
+.sidenav-bottom {
+  margin-top: auto;
+  font-size: 0.55rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ---- MAIN CONTENT AREA ------------------------------------- */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2.5rem 2.5rem 4rem;
+}
+
+/* ---- HERO SECTION ------------------------------------------ */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
 /* Hero logo */
 .hero-logo-img {
   width: 100px;
   height: 100px;
+  border-radius: var(--radius-lg);
+  border: 4px double var(--gold);
   object-fit: cover;
-  border-radius: 12%;
-  border: 4px double #ecce6f;
+  flex-shrink: 0;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
-  .sidenav-logo-img { width: 48px; height: 48px; }
-  .hero-logo-img    { width: 80px; height: 80px; }
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  color: var(--gold);
+  line-height: 1.05;
+  margin-bottom: 0.25rem;
 }
 
-/* Phone */
-@media (max-width: 480px) {
-  .sidenav-logo-img { width: 36px; height: 36px; }
-  .hero-logo-img    { width: 64px; height: 64px; }
+.hero-sub {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
 }
 
-
-/*----------------------------------------COMMENT OUT
-img {
-  max-width: 100%;
-  height: auto;
+.hero-desc {
+  color: var(--white);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 1.2rem;
 }
 
-/* ----------------------Logo resiziing----------------------------*
-.sidenav-logo-img {
-  width: 64px;
-  height: 64px;
+.cv-btn {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px double var(--gold);
+  border-radius: var(--radius-md);
+  padding: 0.45rem 1.1rem;
+  transition: color 0.2s, background 0.2s;
 }
 
-.hero-logo-img {
-  width: 100px;
-  height: 100px;
+.cv-btn:hover {
+  color: var(--white);
+  background: var(--surface2);
 }
 
-/* Tablet — screens 768px and below 
-@media (max-width: 768px) {
-  .sidenav-logo-img {
-    width: 48px;
-    height: 48px;
+/* ---- SECTION SHARED STYLES --------------------------------- */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 0.6rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- ABOUT SECTION ----------------------------------------- */
+.about-text {
+  color: var(--white);
+  font-size: 0.88rem;
+  line-height: 1.85;
+  max-width: 640px;
+}
+
+/* ---- SKILLS SECTION ---------------------------------------- */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.skill-pill {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.skill-pill:hover {
+  border-color: var(--gold);
+  color: var(--white);
+}
+
+/* ---- CV SECTION -------------------------------------------- */
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.cv-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cv-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.cv-card-role {
+  font-size: 0.88rem;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+
+.cv-card-company {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.cv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+}
+
+.cv-tag {
+  font-size: 0.6rem;
+  background: var(--surface3);
+  color: var(--muted);
+  padding: 3px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* ---- PORTFOLIO SECTION ------------------------------------- */
+.tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-main);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+  bottom: -1px;
+}
+
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+
+.tab-btn:hover {
+  color: var(--white);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.port-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+/* Portfolio placeholder card */
+.port-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.port-card:hover {
+  border-color: var(--gold);
+  background: var(--surface3);
+}
+
+.port-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--border);
+}
+
+.port-label {
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Music tab */
+.music-note {
+  color: var(--white);
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px double var(--gold);
+  border-radius: var(--radius-md);
+  padding: 0.45rem 1.1rem;
+  transition: color 0.2s, background 0.2s;
+}
+
+.ext-link:hover {
+  color: var(--white);
+  background: var(--surface2);
+}
+
+/* ---- FOOTER ------------------------------------------------ */
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ---- RESPONSIVE — MOBILE ----------------------------------- */
+@media (max-width: 580px) {
+  body {
+    flex-direction: column;
   }
 
-  .hero-logo-img {
-    width: 80px;
-    height: 80px;
+  /* Sidebar becomes a top sticky bar on mobile */
+  .sidenav {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 0.5rem;
   }
-}
 
-/* Phone — screens 480px and below HASTA AQUI
-@media (max-width: 480px) {
   .sidenav-logo-img {
     width: 36px;
     height: 36px;
+    margin-bottom: 0;
   }
 
-  .hero-logo-img {
-    width: 64px;
-    height: 64px;
+  .sidenav-name {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+  }
+
+  .sidenav-links {
+    flex-direction: row;
+    width: auto;
+    gap: 0;
+  }
+
+  .sidenav-bottom {
+    display: none;
+  }
+
+  .main {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .cv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .port-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-/* ----------------------Estilos Estructura-----------------------
-.contenedor {
-
-}
-*/
-/* ----------------------Estilo Footer/Pie-----------------
-.footer {
-    position:absolute;
-
-
-}
-*/
-/* -----------------------Paginas---------------------------
-.contacto {
-
-}
-
-.trabajos {
-
-}
-*/
-
-/* ------------------------Estilos Seudoclases---------------------*/
-a:hover {
-    text-decoration: dotted;
-}
-
-a:active {
-    color: white;
-}
-
-/*a:visited {}
-   /*RGBA con transparencia*/ 
-
-a:focus {
-    size: 1.5;
-}
-
-/* -----------------ESTILO CODIGO PRUEBA ----------------------*/
-.prueba {
-    font-size: 20px;
-    background-color: gray;
-    width: 300px 300px 300px 300px;
-    height: 400px, 400px;
-    margin: auto;
-    padding: 100px 100px 100px 100px;
-}
-
-.prueba2{
-    font-size: 20px;
-    background-color: gray;
-    width: 300px 300px 300px 300px;
-    height: 400px, 400px;
-    margin: auto;
-    border: 10px;
-    padding: 100px 100px 100px 100px;
-}
-
-/*@meta/media queries para responsive web*/
-
-/*Inspiracion
-
-Ejemplos: 
-https://karlanungaray.github.io/ - imagen arriba.
-https://ivanpeez.github.io/#sobreMiRef - navegacion hacia la izquierda con iconos.
-
-*/
