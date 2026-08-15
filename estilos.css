@@ -93,6 +93,8 @@ li {
     display: inline;
 }
 
+
+
 /* --------------------Estilos especificos------------------------
 
 h1.intro {
@@ -145,6 +147,48 @@ p.curriculum {
     min-width: 10%;
 }
 
+/*--------------------------image-----------------------------------*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ----------------------Logo resiziing----------------------------*/
+.sidenav-logo-img {
+  width: 64px;
+  height: 64px;
+}
+
+.hero-logo-img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Tablet — screens 768px and below */
+@media (max-width: 768px) {
+  .sidenav-logo-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero-logo-img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Phone — screens 480px and below */
+@media (max-width: 480px) {
+  .sidenav-logo-img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-logo-img {
+    width: 64px;
+    height: 64px;
+  }
+}
 /* ----------------------Estilos Estructura-----------------------
 .contenedor {
 
