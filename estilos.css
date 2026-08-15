@@ -141,7 +141,6 @@ a:focus {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-lg);
-  border: 3px double var(--gold);
   object-fit: cover;
   margin-bottom: 0.6rem;
   flex-shrink: 0;
