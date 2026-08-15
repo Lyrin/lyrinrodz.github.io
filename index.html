@@ -1,68 +1,90 @@
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lyrin Rodz &#8212; Artist, Technologist, Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Nabla&family=Bungee&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Nabla&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
   :root{
-    --ink:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--surface3:#222;
-    --accent:#c8a96e;--accent2:#8b6f47;--text:#e8e0d4;--muted:#7a7268;
-    --border:#2a2a2a;
+    --ink:#0a0a0a;--surface2:#1a1a1a;--surface3:#222;
+    --accent:#c8a96e;--accent2:#8b6f47;--text:#e8e0d4;--muted:#7a7268;--border:#2a2a2a;
+    /* Nabla is a COLRv1 color font; the JS at the bottom rewrites this
+       variable to the fallback when the device can't actually render it. */
+    --display:'Nabla','Bungee','Kdam Thmor Pro',cursive;
   }
-  body{background:var(--ink);color:var(--text);font-family:'TikTok Sans',sans-serif;line-height:1.6}
+  body{background:var(--ink);color:var(--text);line-height:1.6;overflow-x:hidden;
+       font-family:'TikTok Sans','Helvetica Neue',Helvetica,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--text)}
+  button{font:inherit}
 
-  .site{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
+  .site{max-width:900px;margin:0 auto;padding:0 clamp(1rem,4vw,1.5rem) 4rem;width:100%;overflow-x:clip}
 
-  nav{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0;border-bottom:1px solid var(--border);margin-bottom:3rem;position:sticky;top:0;background:var(--ink);z-index:100}
-  .nav-logo{font-family:'Nabla',cursive;font-size:1.4rem;color:var(--accent);letter-spacing:1px}
-  .nav-links{display:flex;gap:2rem;list-style:none}
-  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+      padding:1rem 0;border-bottom:1px solid var(--border);margin-bottom:3rem;
+      position:sticky;top:0;background:var(--ink);z-index:100}
+  .nav-logo{font-family:var(--display);font-size:clamp(1rem,4.5vw,1.4rem);line-height:1.3;
+            color:var(--accent);letter-spacing:1px;white-space:nowrap}
+  .nav-links{display:flex;gap:clamp(.9rem,4vw,2rem);list-style:none;flex-wrap:wrap}
+  .nav-links a{color:var(--muted);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
   .nav-links a:hover{color:var(--accent)}
 
-  .hero{text-align:center;padding:3rem 0 4rem;border-bottom:1px solid var(--border);margin-bottom:4rem}
-  .hero-name{font-family:'Nabla',cursive;font-size:clamp(2.5rem,8vw,5rem);color:var(--accent);line-height:1.1;margin-bottom:0.5rem}
-  .hero-sub{font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+  .hero{text-align:center;padding:2rem 0 3.5rem;border-bottom:1px solid var(--border);margin-bottom:3.5rem}
+  .hero-name{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,11vw,5rem);
+             color:var(--accent);line-height:1.15;margin-bottom:.6rem;word-break:break-word;overflow-wrap:anywhere}
+  .hero-sub{font-size:clamp(.65rem,2.6vw,.8rem);letter-spacing:.28em;text-transform:uppercase;
+            color:var(--muted);margin-bottom:2rem}
   .hero-divider{width:60px;height:1px;background:var(--accent2);margin:0 auto}
 
-  .section{margin-bottom:4rem}
-  .section-title{font-family:'Kdam Thmor Pro',sans-serif;font-size:0.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border)}
+  .section{margin-bottom:3.5rem}
+  .section-title{font-family:'Kdam Thmor Pro',sans-serif;font-size:.72rem;letter-spacing:.35em;
+                 text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;
+                 padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+  .intro-text{font-size:clamp(.95rem,2.6vw,1rem);color:#b0a898;line-height:1.85;max-width:680px;text-wrap:pretty}
 
-  .intro-text{font-size:1rem;color:#b0a898;line-height:1.85;max-width:680px}
-
-  .cv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
-  .cv-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1.25rem;transition:border-color 0.2s,transform 0.2s;cursor:default}
+  .cv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:1rem}
+  .cv-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1.25rem;
+           transition:border-color .2s,transform .2s}
   .cv-card:hover{border-color:var(--accent2);transform:translateY(-2px)}
-  .cv-card-role{font-family:'Kdam Thmor Pro',sans-serif;font-size:0.95rem;color:var(--accent);margin-bottom:0.25rem}
-  .cv-card-company{font-size:0.8rem;color:var(--muted);letter-spacing:1px;margin-bottom:0.75rem}
+  .cv-card-role{font-family:'Kdam Thmor Pro',sans-serif;font-size:.95rem;color:var(--accent);margin-bottom:.25rem}
+  .cv-card-company{font-size:.8rem;color:var(--muted);letter-spacing:1px;margin-bottom:.75rem}
   .cv-card-skills{display:flex;flex-wrap:wrap;gap:6px}
-  .skill-tag{font-size:0.7rem;background:var(--surface3);color:#8a7f72;padding:3px 8px;border-radius:3px;letter-spacing:0.5px}
+  .skill-tag{font-size:.7rem;background:var(--surface3);color:#8a7f72;padding:3px 8px;border-radius:3px;letter-spacing:.5px}
 
-  .tab-nav{display:flex;gap:0;margin-bottom:2rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
-  .tab-btn{background:none;border:none;color:var(--muted);font-family:'TikTok Sans',sans-serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;padding:0.6rem 1rem;cursor:pointer;transition:color 0.2s;position:relative;bottom:-1px}
-  .tab-btn.active{color:var(--accent);border-bottom:1px solid var(--accent)}
+  .tab-nav{display:flex;gap:.25rem;margin-bottom:2rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+  .tab-btn{background:none;border:none;border-bottom:1px solid transparent;color:var(--muted);
+           font-size:.75rem;letter-spacing:2px;text-transform:uppercase;padding:.85rem 1rem;min-height:44px;
+           cursor:pointer;white-space:nowrap;position:relative;bottom:-1px;transition:color .2s}
   .tab-btn:hover{color:var(--text)}
+  .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
 
   .tab-panel{display:none}
   .tab-panel.active{display:block}
 
-  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
-  .portfolio-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;cursor:pointer;transition:border-color 0.2s,background 0.2s;text-decoration:none}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px,45%),1fr));gap:1rem}
+  .portfolio-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;aspect-ratio:3/4;
+                  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
+                  padding:.75rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
   .portfolio-card:hover{border-color:var(--accent2);background:var(--surface3)}
-  .portfolio-card-num{font-family:'Nabla',cursive;font-size:2rem;color:var(--border)}
-  .portfolio-card-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+  .portfolio-card-num{font-family:var(--display);font-size:clamp(1.4rem,7vw,2rem);line-height:1.2;color:#3a3a3a}
+  .portfolio-card-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 
-  .bandcamp-link{display:inline-flex;align-items:center;gap:8px;margin-top:1rem;color:var(--accent);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid var(--accent2);padding:0.5rem 1.25rem;border-radius:3px;transition:background 0.2s}
-  .bandcamp-link:hover{background:var(--surface2)}
+  .bandcamp-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:.8rem;
+                 letter-spacing:2px;text-transform:uppercase;border:1px solid var(--accent2);
+                 padding:.7rem 1.25rem;border-radius:3px;min-height:44px;transition:background .2s}
+  .bandcamp-link:hover{background:var(--surface2);color:var(--accent)}
 
-  footer{border-top:1px solid var(--border);padding-top:2rem;text-align:center;color:var(--muted);font-size:0.75rem;letter-spacing:2px}
-
-  @media(max-width:600px){
-    .nav-links{gap:1.2rem}
-    .hero-name{font-size:2.5rem}
-    .cv-grid{grid-template-columns:1fr}
-    .portfolio-grid{grid-template-columns:repeat(2,1fr)}
-  }
+  footer{border-top:1px solid var(--border);padding-top:2rem;text-align:center;color:var(--muted);
+         font-size:.75rem;letter-spacing:2px}
 </style>
-
+</head>
+<body>
 <div class="site">
   <nav>
     <span class="nav-logo">Lyrin Rodz</span>
@@ -74,14 +96,14 @@
   </nav>
 
   <section class="hero" id="home">
-    <div class="hero-name">Lyrin Rodz</div>
+    <h1 class="hero-name">Lyrin Rodz</h1>
     <div class="hero-sub">Artist &#8226; Technologist &#8226; Creator</div>
     <div class="hero-divider"></div>
   </section>
 
   <section class="section" id="about">
     <div class="section-title">Who am I</div>
-    <p class="intro-text">I am an artist and a technologist at heart. Since childhood, I've been drawn to creating &ndash; sketching, designing, and exploring anything that let me express ideas visually. As technology evolved, so did my curiosity. In my teen years, I discovered the world of web customization and spent hours playing with HTML to personalize my Myspace page. That moment opened my eyes: I could create with technology just as I did with art, and share it with the world. That realization inspired me to pursue a bachelor's degree in Computer Information Systems, blending creativity with technical problem&ndash;solving. Today, I continue to explore the space where art, design, and technology meet.</p>
+    <p class="intro-text">I am an artist and a technologist at heart. Since childhood, I&#8217;ve been drawn to creating &#8211; sketching, designing, and exploring anything that let me express ideas visually. As technology evolved, so did my curiosity. In my teen years, I discovered the world of web customization and spent hours playing with HTML to personalize my Myspace page. That moment opened my eyes: I could create with technology just as I did with art, and share it with the world. That realization inspired me to pursue a bachelor&#8217;s degree in Computer Information Systems, blending creativity with technical problem&#8211;solving. Today, I continue to explore the space where art, design, and technology meet.</p>
   </section>
 
   <section class="section" id="cv">
@@ -89,28 +111,23 @@
     <div class="cv-grid">
       <div class="cv-card">
         <div class="cv-card-role">Position Title</div>
-        <div class="cv-card-company">Company Name &#8226; 20XX &ndash; 20XX</div>
+        <div class="cv-card-company">Company Name &#8226; 20XX &#8211; 20XX</div>
         <div class="cv-card-skills">
-          <span class="skill-tag">Skill A</span>
-          <span class="skill-tag">Skill B</span>
-          <span class="skill-tag">Skill C</span>
+          <span class="skill-tag">Skill A</span><span class="skill-tag">Skill B</span><span class="skill-tag">Skill C</span>
         </div>
       </div>
       <div class="cv-card">
         <div class="cv-card-role">Position Title</div>
-        <div class="cv-card-company">Company Name &#8226; 20XX &ndash; 20XX</div>
+        <div class="cv-card-company">Company Name &#8226; 20XX &#8211; 20XX</div>
         <div class="cv-card-skills">
-          <span class="skill-tag">Skill A</span>
-          <span class="skill-tag">Skill B</span>
+          <span class="skill-tag">Skill A</span><span class="skill-tag">Skill B</span>
         </div>
       </div>
       <div class="cv-card">
         <div class="cv-card-role">Position Title</div>
-        <div class="cv-card-company">Company Name &#8226; 20XX &ndash; 20XX</div>
+        <div class="cv-card-company">Company Name &#8226; 20XX &#8211; 20XX</div>
         <div class="cv-card-skills">
-          <span class="skill-tag">Skill A</span>
-          <span class="skill-tag">Skill B</span>
-          <span class="skill-tag">Skill C</span>
+          <span class="skill-tag">Skill A</span><span class="skill-tag">Skill B</span><span class="skill-tag">Skill C</span>
         </div>
       </div>
     </div>
@@ -119,10 +136,10 @@
   <section class="section" id="portfolio">
     <div class="section-title">Portfolio</div>
     <div class="tab-nav">
-      <button class="tab-btn active" onclick="switchTab(this,'illus')">Illustrations</button>
-      <button class="tab-btn" onclick="switchTab(this,'letter')">Lettering</button>
-      <button class="tab-btn" onclick="switchTab(this,'logo')">Logotypes</button>
-      <button class="tab-btn" onclick="switchTab(this,'music')">Music</button>
+      <button type="button" class="tab-btn active" data-tab="illus">Illustrations</button>
+      <button type="button" class="tab-btn" data-tab="letter">Lettering</button>
+      <button type="button" class="tab-btn" data-tab="logo">Logotypes</button>
+      <button type="button" class="tab-btn" data-tab="music">Music</button>
     </div>
 
     <div class="tab-panel active" id="tab-illus">
@@ -148,21 +165,44 @@
     </div>
 
     <div class="tab-panel" id="tab-music">
-      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem">Listen to my music on Bandcamp:</p>
-      <a class="bandcamp-link" href="https://lyrinrodz.bandcamp.com/" target="_blank">Visit Bandcamp</a>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">Listen to my music on Bandcamp:</p>
+      <a class="bandcamp-link" href="https://lyrinrodz.bandcamp.com/" target="_blank" rel="noopener">Visit Bandcamp</a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Lyraida Rodriguez &#8226; Lyrin Rodz</p>
+    <p>&#169; 2026 Lyraida Rodriguez &#8226; Lyrin Rodz</p>
   </footer>
 </div>
 
 <script>
-function switchTab(btn, id){
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('tab-'+id).classList.add('active');
-}
+/* Tabs */
+document.querySelectorAll('.tab-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    var panel = document.getElementById('tab-' + btn.dataset.tab);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+/* Display-font guard: if Nabla never loads/renders (common on mobile),
+   swap --display to Bungee so the hero, logo and card numbers stay styled. */
+(function () {
+  var FALLBACK = "'Bungee','Kdam Thmor Pro',cursive";
+  var settled = false;
+  function apply(ok) {
+    if (settled) return;
+    settled = true;
+    if (!ok) document.documentElement.style.setProperty('--display', FALLBACK);
+  }
+  if (!window.document.fonts || !document.fonts.load) return apply(false);
+  setTimeout(function () { apply(false); }, 2500);
+  document.fonts.load('1rem Nabla', 'Lyrin Rodz 0123456789')
+    .then(function (faces) { apply(faces.length > 0 && document.fonts.check('1rem Nabla')); })
+    .catch(function () { apply(false); });
+})();
 </script>
+</body>
+</html>
