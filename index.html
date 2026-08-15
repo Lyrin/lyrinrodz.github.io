@@ -1,83 +1,168 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Lyraida Rodriguez aka Lyrin Rodz</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="estilos.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
-    </head>
-
-		<body>
-            <img src="Blanco_Y_Negro_V_2.png" alt="Logo Lyrin Rodz" title="Lyrin Rodz" class="main-img">
-
-            <nav class="navegacion">
-                <span>
-                <ul class="navItems">
-                    <li><a href="#index">Home</a></li><br>
-                    <li><a href="#curriculum">CV</a></li>
-                    <li><a href="#works">Portfolio</a></li>
-                </ul>
-            </span>
-            </nav>
-
-            <header>
-                <hero></hero>
-            </header>
 
 
-            <!-- Division Introduccion Quien Soy -->
-            <div class="intro">
-            <h1 id="index">Who am I?</h1>
-                  <p>I am an artist and a technologist at heart. Since childhood, I’ve been drawn to creating — sketching, designing, and exploring anything that let me express ideas visually. As technology evolved, so did my curiosity. In my teen years, I discovered the world of web customization and spent hours playing with HTML to personalize my Myspace page. That moment opened my eyes: I could create with technology just as I did with art, and share it with the world. That realization inspired me to pursue a bachelor’s degree in Computer Information Systems, blending creativity with technical problem‑solving. Today, I continue to explore the space where art, design, and technology meet.</p></div>
-            
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Nabla&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#0a0a0a;--surface:#111;--surface2:#1a1a1a;--surface3:#222;
+    --accent:#c8a96e;--accent2:#8b6f47;--text:#e8e0d4;--muted:#7a7268;
+    --border:#2a2a2a;
+  }
+  body{background:var(--ink);color:var(--text);font-family:'TikTok Sans',sans-serif;line-height:1.6}
 
-            <!-- Division Curriculum Vitae/Resume -->
-            <div class="cv"><h1 id="curriculum" class="curriculum">Curriculum Vitae</h1>
-                <ul>
-                    <li><h2>Position</h2></li>
-                    <li><h3>Company</h3></li>
-                    <li><h4>Skills</h4></li>
-                </ul>
-            </div>
+  .site{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
 
-			
-            <!-- Division Trabajos/Portafolio -->
-            <div class="portfolio"><h1 id="works" class="Portafolio">Portfolio</h1>
-                <ul>
-                    <li><h2>Illustrations</h2></li>
-                    <li><h2>Lettering</h2></li>
-                    <li><h2>Logotypes</h2></li>    
-                <!---<h2>Web Design</h2>
-                <h2>Textiles</h2>-->
-                    <li><h2>Music</h2></li>
-                </ul>
-                    <ul>
-                        <li><a href="https://lyrinrodz.bandcamp.com/">Bandcamp</a></li>
-                    </ul>
-            </div>
-            
-            </div>
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0;border-bottom:1px solid var(--border);margin-bottom:3rem;position:sticky;top:0;background:var(--ink);z-index:100}
+  .nav-logo{font-family:'Nabla',cursive;font-size:1.4rem;color:var(--accent);letter-spacing:1px}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+  .nav-links a:hover{color:var(--accent)}
 
-            
-            <!-- Division Prueba Codigo 
-            <div class="prueba"><h1>Lenguajes de Servidor</h1>
-                <p>Codigo de prueba. Esto es un parrafo.</p>
-                <ul>
-			        <li><h2>PHP</h2></li>
-		            <li><h2>Ruby</h2></li>
-                </ul>
-            </div> 
-            <div class="prueba2"><h1>Prueba 2</h1>
-                <p>Esto es otro div de prueba</p>
-                    <ul>
-                        <li><h2>Primero</h2></li>
-                        <li><h2>Segundo</h2></li>
-                    </ul>
-            </div>-->
-            <div class="footer"><p>footer</p></div>
-            
-	<script src="/javascript.js"></script>	
-        </body>
-</html>
+  .hero{text-align:center;padding:3rem 0 4rem;border-bottom:1px solid var(--border);margin-bottom:4rem}
+  .hero-name{font-family:'Nabla',cursive;font-size:clamp(2.5rem,8vw,5rem);color:var(--accent);line-height:1.1;margin-bottom:0.5rem}
+  .hero-sub{font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+  .hero-divider{width:60px;height:1px;background:var(--accent2);margin:0 auto}
+
+  .section{margin-bottom:4rem}
+  .section-title{font-family:'Kdam Thmor Pro',sans-serif;font-size:0.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border)}
+
+  .intro-text{font-size:1rem;color:#b0a898;line-height:1.85;max-width:680px}
+
+  .cv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+  .cv-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1.25rem;transition:border-color 0.2s,transform 0.2s;cursor:default}
+  .cv-card:hover{border-color:var(--accent2);transform:translateY(-2px)}
+  .cv-card-role{font-family:'Kdam Thmor Pro',sans-serif;font-size:0.95rem;color:var(--accent);margin-bottom:0.25rem}
+  .cv-card-company{font-size:0.8rem;color:var(--muted);letter-spacing:1px;margin-bottom:0.75rem}
+  .cv-card-skills{display:flex;flex-wrap:wrap;gap:6px}
+  .skill-tag{font-size:0.7rem;background:var(--surface3);color:#8a7f72;padding:3px 8px;border-radius:3px;letter-spacing:0.5px}
+
+  .tab-nav{display:flex;gap:0;margin-bottom:2rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+  .tab-btn{background:none;border:none;color:var(--muted);font-family:'TikTok Sans',sans-serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;padding:0.6rem 1rem;cursor:pointer;transition:color 0.2s;position:relative;bottom:-1px}
+  .tab-btn.active{color:var(--accent);border-bottom:1px solid var(--accent)}
+  .tab-btn:hover{color:var(--text)}
+
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+
+  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+  .portfolio-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;cursor:pointer;transition:border-color 0.2s,background 0.2s;text-decoration:none}
+  .portfolio-card:hover{border-color:var(--accent2);background:var(--surface3)}
+  .portfolio-card-num{font-family:'Nabla',cursive;font-size:2rem;color:var(--border)}
+  .portfolio-card-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+  .bandcamp-link{display:inline-flex;align-items:center;gap:8px;margin-top:1rem;color:var(--accent);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid var(--accent2);padding:0.5rem 1.25rem;border-radius:3px;transition:background 0.2s}
+  .bandcamp-link:hover{background:var(--surface2)}
+
+  footer{border-top:1px solid var(--border);padding-top:2rem;text-align:center;color:var(--muted);font-size:0.75rem;letter-spacing:2px}
+
+  @media(max-width:600px){
+    .nav-links{gap:1.2rem}
+    .hero-name{font-size:2.5rem}
+    .cv-grid{grid-template-columns:1fr}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+
+<div class="site">
+  <nav>
+    <span class="nav-logo">Lyrin Rodz</span>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-name">Lyraida Rodriguez</div>
+    <div class="hero-sub">Artist &nbsp;·&nbsp; Technologist &nbsp;·&nbsp; Creator</div>
+    <div class="hero-divider"></div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-title">Who am I</div>
+    <p class="intro-text">I am an artist and a technologist at heart. Since childhood, I've been drawn to creating — sketching, designing, and exploring anything that let me express ideas visually. As technology evolved, so did my curiosity. In my teen years, I discovered the world of web customization and spent hours playing with HTML to personalize my Myspace page. That moment opened my eyes: I could create with technology just as I did with art, and share it with the world. That realization inspired me to pursue a bachelor's degree in Computer Information Systems, blending creativity with technical problem‑solving. Today, I continue to explore the space where art, design, and technology meet.</p>
+  </section>
+
+  <section class="section" id="cv">
+    <div class="section-title">Curriculum Vitae</div>
+    <div class="cv-grid">
+      <div class="cv-card">
+        <div class="cv-card-role">Position Title</div>
+        <div class="cv-card-company">Company Name &nbsp;·&nbsp; 20XX – 20XX</div>
+        <div class="cv-card-skills">
+          <span class="skill-tag">Skill A</span>
+          <span class="skill-tag">Skill B</span>
+          <span class="skill-tag">Skill C</span>
+        </div>
+      </div>
+      <div class="cv-card">
+        <div class="cv-card-role">Position Title</div>
+        <div class="cv-card-company">Company Name &nbsp;·&nbsp; 20XX – 20XX</div>
+        <div class="cv-card-skills">
+          <span class="skill-tag">Skill A</span>
+          <span class="skill-tag">Skill B</span>
+        </div>
+      </div>
+      <div class="cv-card">
+        <div class="cv-card-role">Position Title</div>
+        <div class="cv-card-company">Company Name &nbsp;·&nbsp; 20XX – Present</div>
+        <div class="cv-card-skills">
+          <span class="skill-tag">Skill A</span>
+          <span class="skill-tag">Skill B</span>
+          <span class="skill-tag">Skill C</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="section-title">Portfolio</div>
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'illus')">Illustrations</button>
+      <button class="tab-btn" onclick="switchTab(this,'letter')">Lettering</button>
+      <button class="tab-btn" onclick="switchTab(this,'logo')">Logotypes</button>
+      <button class="tab-btn" onclick="switchTab(this,'music')">Music</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-illus">
+      <div class="portfolio-grid">
+        <div class="portfolio-card"><span class="portfolio-card-num">01</span><span class="portfolio-card-label">Illustration</span></div>
+        <div class="portfolio-card"><span class="portfolio-card-num">02</span><span class="portfolio-card-label">Illustration</span></div>
+        <div class="portfolio-card"><span class="portfolio-card-num">03</span><span class="portfolio-card-label">Illustration</span></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-letter">
+      <div class="portfolio-grid">
+        <div class="portfolio-card"><span class="portfolio-card-num">01</span><span class="portfolio-card-label">Lettering</span></div>
+        <div class="portfolio-card"><span class="portfolio-card-num">02</span><span class="portfolio-card-label">Lettering</span></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-logo">
+      <div class="portfolio-grid">
+        <div class="portfolio-card"><span class="portfolio-card-num">01</span><span class="portfolio-card-label">Logotype</span></div>
+        <div class="portfolio-card"><span class="portfolio-card-num">02</span><span class="portfolio-card-label">Logotype</span></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-music">
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem">Listen to my music on Bandcamp:</p>
+      <a class="bandcamp-link" href="https://lyrinrodz.bandcamp.com/" target="_blank">Visit Bandcamp</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Lyraida Rodriguez &nbsp;·&nbsp; Lyrin Rodz</p>
+  </footer>
+</div>
+
+<script>
+function switchTab(btn, id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
