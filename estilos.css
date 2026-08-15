@@ -147,13 +147,51 @@ p.curriculum {
     min-width: 10%;
 }
 
-/*--------------------------image-----------------------------------*/
+/*--------------------------ARREGLO LOGO-----------------------------------*/
+/* General safety net for ALL images */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* ----------------------Logo resiziing----------------------------*/
+/* Sidebar logo */
+.sidenav-logo-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 12%;
+  border: 3px double #ecce6f;
+}
+
+/* Hero logo */
+.hero-logo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12%;
+  border: 4px double #ecce6f;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .sidenav-logo-img { width: 48px; height: 48px; }
+  .hero-logo-img    { width: 80px; height: 80px; }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  .sidenav-logo-img { width: 36px; height: 36px; }
+  .hero-logo-img    { width: 64px; height: 64px; }
+}
+
+
+/*----------------------------------------COMMENT OUT
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ----------------------Logo resiziing----------------------------*
 .sidenav-logo-img {
   width: 64px;
   height: 64px;
@@ -164,7 +202,7 @@ img {
   height: 100px;
 }
 
-/* Tablet — screens 768px and below */
+/* Tablet — screens 768px and below 
 @media (max-width: 768px) {
   .sidenav-logo-img {
     width: 48px;
@@ -177,7 +215,7 @@ img {
   }
 }
 
-/* Phone — screens 480px and below */
+/* Phone — screens 480px and below HASTA AQUI
 @media (max-width: 480px) {
   .sidenav-logo-img {
     width: 36px;
