@@ -150,9 +150,11 @@ a:focus {
   font-family: var(--font-display);
   font-size: 0.85rem;
   color: var(--gold);
+  -webkit-text-fill-color: var(--gold);
   text-align: center;
   margin-bottom: 2rem;
   letter-spacing: 1px;
+  font-synthesis: none
 }
 
 .sidenav-links {
@@ -549,5 +551,15 @@ footer {
 
   .port-grid {
     grid-template-columns: repeat(2, 1fr);
+
+     /*-----------------Nabla not loading -------------*/
+@supports not (color: color(display-p3 0 0 0)) {
+  .hero-name,
+  .sidenav-name {
+    font-family: "Kdam Thmor Pro", sans-serif;
+    color: var(--gold);
+    -webkit-text-fill-color: var(--gold);
   }
+}
+  }Nb
 }
