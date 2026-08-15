@@ -138,7 +138,7 @@ p.curriculum {
     bottom: 100px;
 }
 
-/* ------Estilos para el logo - quiero el logo animado 3d----------- */
+/* ------Estilos para el logo 
 .main-img {
     border: solid 5px black;
     border-radius: 10%;
@@ -146,6 +146,7 @@ p.curriculum {
     max-width: 5%;
     min-width: 10%;
 }
+- quiero el logo animado 3d----------- */
 
 /*--------------------------ARREGLO LOGO-----------------------------------*/
 /* General safety net for ALL images */
