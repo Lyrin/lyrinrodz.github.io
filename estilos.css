@@ -211,7 +211,7 @@ a:focus {
   flex-wrap: wrap;
 }
 
-/* Hero logo */
+/* Hero logo 
 .hero-logo-img {
   width: 100px;
   height: 100px;
@@ -219,6 +219,7 @@ a:focus {
   object-fit: cover;
   flex-shrink: 0;
 }
+*/
 
 .hero-name {
   font-family: var(--font-display);
@@ -500,11 +501,12 @@ footer {
     gap: 0.5rem;
   }
 
-  .sidenav-logo-img {
+.sidenav-logo-img {
     width: 36px;
     height: 36px;
     margin-bottom: 0;
   }
+
 
   .sidenav-name {
     margin-bottom: 0;
