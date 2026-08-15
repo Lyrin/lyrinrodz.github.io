@@ -100,7 +100,6 @@ h1, h2, h3, h4, h5, h6 {
 p {
   color: var(--white);
   line-height: 1.5;
-   font-family: TikTok Sans", sans-serif;
 }
 
 a {
@@ -285,6 +284,7 @@ a:focus {
   font-size: 0.88rem;
   line-height: 1.85;
   max-width: 640px;
+   font-family: "TikTok Sans", sans-serif;
 }
 
 /* ---- SKILLS SECTION ---------------------------------------- */
